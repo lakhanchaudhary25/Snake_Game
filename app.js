@@ -178,6 +178,9 @@ startgame.addEventListener("click",()=>{
 
 
     restart.addEventListener("click", () => {
+        clearInterval(interval);
+        clearInterval(timeinterval);
+
     snake = [
         { x: 6, y: 5 },
         { x: 6, y: 6 },
