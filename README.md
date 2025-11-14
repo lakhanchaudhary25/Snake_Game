@@ -37,7 +37,7 @@ and complete snake movement + collision logic.
 
 
 ```
-(https://lakhanchaudhary25.github.io/Snake_Game/)
+https://lakhanchaudhary25.github.io/Snake_Game/
 ```
 
 ## 🖼️ Screenshots
