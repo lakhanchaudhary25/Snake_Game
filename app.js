@@ -4,7 +4,9 @@ const startgame=document.querySelector(".start-game button");
 const start=document.querySelector(".start-game");
 const filter=document.querySelector(".filter");
 const restart=document.querySelector(".game-over button");
-const gameOver=document.querySelector(".game-over")
+const gameOver=document.querySelector(".game-over");
+const eatSound = new Audio("eat.mp3");
+const gameOverSound = new Audio("game-over.mp3");
 let savedHighscore = Number(localStorage.getItem("highscore")) || 0;
 highScore.textContent = savedHighscore;
 let interval;
@@ -117,6 +119,8 @@ function updatesnake(){
         head=newhead;
         }
         else{
+            gameOverSound.currentTime = 0;
+            gameOverSound.play();
            gameOver.style.display="block";
            filter.style.backdropFilter = "blur(10px)";
             clearInterval(interval);
@@ -129,6 +133,8 @@ function updatesnake(){
         }
 
     if(head.y<0 || head.y>=rows || head.x<0 ||head.x>=cols){
+        gameOverSound.currentTime = 0;
+        gameOverSound.play();
         gameOver.style.display="block";
         filter.style.backdropFilter = "blur(10px)";
         clearInterval(interval);
@@ -149,6 +155,8 @@ function food(){
     blocks[foodY][foodX].classList.add("food");
 
     if(foodY===head.y&&foodX===head.x){
+        eatSound.currentTime = 0;
+        eatSound.play();
         blocks[foodY][foodX].classList.remove("food");
         foodY=Math.floor(Math.random()*rows);
         foodX=Math.floor(Math.random()*cols);
