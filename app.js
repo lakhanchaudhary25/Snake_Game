@@ -174,7 +174,13 @@ function food(){
 
 
 startgame.addEventListener("click",()=>{
-    
+    eatSound.play().catch(() => {});
+    gameOverSound.play().catch(() => {});
+    eatSound.pause();
+    gameOverSound.pause();
+    eatSound.currentTime = 0;
+    gameOverSound.currentTime = 0;
+
     filter.style.backdropFilter = "none";
     start.style.display="none";
     interval= setInterval(() => {
